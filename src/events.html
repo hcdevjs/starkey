@@ -4,33 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/calendar.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="events.html">Events</a> |
-    <a href="music.html">Music</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div id="nav-placeholder"></div>
+  
   <h1>Upcoming Events</h1>
   <div class="event-graphic">
-    <img src="../public/event1-placeholder.jpg" alt="Event 1" class="event-img">
-    <img src="../public/event2-placeholder.jpg" alt="Event 2" class="event-img">
-    <img src="../public/event3-placeholder.jpg" alt="Event 3" class="event-img">
-    <!-- Add JS to flip between images later -->
+    <img src="assets/img/event1-placeholder.jpg" alt="Event 1" class="event-img">
+    <img src="assets/img/event2-placeholder.jpg" alt="Event 2" class="event-img">
+    <img src="assets/img/event3-placeholder.jpg" alt="Event 3" class="event-img">
   </div>
-  <div class="calendar">
-    <p>Update this section with upcoming gigs and dates.</p>
-    <!-- Calendar boilerplate or embed can go here -->
+  
+  <div class="calendar-container">
+    <div id="calendar"></div>
   </div>
-  <footer>
-    <div class="social-links">
-      <a href="#" title="Facebook">Facebook</a> |
-      <a href="#" title="Instagram">Instagram</a> |
-      <a href="#" title="Threads">Threads</a>
+
+  <!-- Event Details Modal -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div class="event-details">
+        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+        <p><strong>Time:</strong> <span id="modalTime"></span></p>
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+        <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+      </div>
+      <div class="modal-footer">
+        <a id="modalVenueLink" href="#" class="venue-button" target="_blank">View Venue</a>
+        <a id="modalMapLink" href="#" class="map-button" target="_blank">Open in Maps</a>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/calendar.js"></script>
 </body>
 </html>

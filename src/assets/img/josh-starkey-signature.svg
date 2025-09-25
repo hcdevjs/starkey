@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200" role="img" aria-label="Fancy signature for Josh Starkey">
+  <!-- Background left transparent so it can be placed on any dark surface -->
+  <rect width="100%" height="100%" fill="transparent"/>
+
+  <!-- Fancy cursive text -->
+  <text x="30" y="110" font-family="'Great Vibes','Segoe Script','Brush Script MT',cursive"
+        font-size="82" font-weight="400" fill="#ffffff" style="letter-spacing:3px;">
+    Josh
+    <tspan x="200" dy="0">Starkey</tspan>
+  </text>
+
+  <!-- Elegant underline flourish -->
+  <path d="M40 135 C150 190, 400 120, 560 155" 
+        fill="none" stroke="#ffffff" stroke-width="3.5" 
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+  <!-- Extra loop flourish -->
+  <path d="M520 155 C540 145, 555 125, 570 145 C580 160, 560 170, 545 165" 
+        fill="none" stroke="#ffffff" stroke-width="2.8" 
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+</svg>
