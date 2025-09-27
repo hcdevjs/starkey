@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-  <div id="nav-placeholder"></div>
-  
-  <h1>Contact</h1>
-  <img src="assets/img/contact-placeholder.jpg" alt="Contact graphic placeholder" class="placeholder-img">
-  <form>
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"><br>
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message"></textarea><br>
-    <button type="submit">Send</button>
-  </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
 
-  <div id="footer-placeholder"></div>
+    <h1>Contact</h1>
+    <p>If you have any questions or inquiries, feel free to reach out!</p>
+    <a href="mailto:joshstarkeymusic@gmail.com" class="contact-button">Email Josh Starkey Music</a>
 
-  <script src="assets/js/app.js"></script>
-        });
-      });
-  </script>
-</body>
+    <!-- 
+      Optional: To enable the contact form below, remove the surrounding comment tags 
+      You will also need a free Formspree account (formspree.io).
+      
+      Instructions:
+      1. Sign up at formspree.io with the email you want to receive messages at.
+      2. Create a new form in your Formspree dashboard.
+      3. Replace 'YOUR_UNIQUE_ID' in the form's 'action' attribute with the endpoint ID from your new Formspree form.
+         Example: action="https://formspree.io/f/xaygrnzb"
+    
+    <div class="form-container">
+      <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div> 
+    -->
+    
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>

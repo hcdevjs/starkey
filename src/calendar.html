@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar - Josh Starkey Music</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      .calendar-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .calendar-wrapper {
+        position: relative;
+        padding-bottom: 75%; /* Aspect ratio for the calendar */
+        height: 0;
+        overflow: hidden;
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .calendar-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .calendar-options {
+        margin: 2rem auto;
+        text-align: center;
+      }
+
+      .calendar-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        margin: 0 0.5rem;
+        background-color: #bb86fc;
+        color: #121212;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .calendar-button:hover {
+        background-color: #a166e0;
+      }
+
+      @media (max-width: 768px) {
+        .calendar-wrapper {
+          padding-bottom: 100%; /* Taller aspect ratio for mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <h1>Event Calendar</h1>
+
+    <div class="calendar-container">
+      <div class="calendar-options">
+        <a href="events.html" class="calendar-button">View List View</a>
+        <a
+          href="YOUR_GOOGLE_CALENDAR_LINK"
+          target="_blank"
+          class="calendar-button"
+          >Add to Your Calendar</a
+        >
+      </div>
+
+      <div class="calendar-wrapper">
+        <!-- Replace CALENDAR_ID with your actual Google Calendar ID -->
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=e8691c1584cd04a95c1d67c3b4c0172718c3756488c4127f3f02c80168f0c230%40group.calendar.google.com&ctz=America%2FNew_York"
+            "border: 0"
+          width="800"
+          height="600"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
