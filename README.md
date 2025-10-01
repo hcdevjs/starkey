@@ -25,7 +25,6 @@ docs/
 │   │   ├── app.js         # Core application logic (loads nav/footer)
 │   │   ├── calendar.js    # Calendar functionality
 │   │   ├── main.js       # Additional JavaScript
-│   │   ├── main.js        # Additional JavaScript
 │   │   └── manage-events.js # Event management script
 │   ├── data/
 │   │   └── events.json   # Calendar events data
@@ -33,7 +32,6 @@ docs/
 │       ├── hero-*.png    # Hero carousel images
 │       └── *.jpg        # Other site images
 ├── index.html           # Home page
-├── about.html          # About the artist
 ├── about.html           # About the artist
 ├── music.html         # Music and Spotify embeds
 ├── events.html       # Events calendar
@@ -48,7 +46,8 @@ docs/
    git clone https://github.com/hcdevjs/starkey.git
    cd starkey
 ````
-```
+
+````
 
 2. **Dependencies:**
 
@@ -65,7 +64,7 @@ docs/
 
    # Or using PHP
    php -S localhost:8000
-   ```
+````
 
 4. **View the Website:**
    Open your browser and go to `http://localhost:8000/docs/`
@@ -109,7 +108,6 @@ The website includes an event calendar system that can be managed through a simp
 
    ```bash
    # Make the script executable (first time only)
-   chmod +x src/assets/js/manage-events.js
    chmod +x docs/assets/js/manage-events.js
 
    # Run the management script from the root directory
@@ -134,7 +132,6 @@ The website includes an event calendar system that can be managed through a simp
 
 ### Event Storage
 
-- Events are stored in `src/assets/data/events.json`
 - Events are stored in `docs/assets/data/events.json`
 - The calendar on `events.html` automatically loads events from this file
 - The file is updated automatically when using the management script
@@ -185,7 +182,6 @@ The website includes an event calendar system that can be managed through a simp
 
 ### Adding New Pages
 
-1. Create new HTML file in `src/`
 1. Create new HTML file in `docs/`
 2. Include common elements:
    ```html

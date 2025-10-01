@@ -1,1 +1,3 @@
 *.local.*
+# Ignore config file with API keys
+docs/assets/js/config.js

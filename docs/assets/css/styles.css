@@ -36,7 +36,7 @@ p {
     display: flex;
 }
 
-.main-nav a {
+.main-nav a, .main-nav a:visited {
     color: #e0e0e0;
     text-decoration: none;
     margin: 0 15px;
@@ -46,6 +46,11 @@ p {
 
 .main-nav a:hover {
     color: #bb86fc;
+}
+
+
+.a:visited {
+  color: #e0e0e0;
 }
 
 .hamburger-menu {
@@ -119,7 +124,7 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.footer-section ul a {
+.footer-section ul a, .footer-section ul a:visited {
   color: #e0e0e0;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -133,7 +138,7 @@ p {
   margin-top: 1rem;
 }
 
-.footer-section .social-links a {
+.footer-section .social-links a, .footer-section .social-links a:visited {
   color: #bb86fc;
   margin-right: 15px;
   text-decoration: none;
@@ -275,6 +280,7 @@ form button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .card:hover {
@@ -288,6 +294,24 @@ form button:hover {
   border-bottom: 2px solid #bb86fc;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.card a, .card a:link {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: #bb86fc;
+}
+
+.card a, .card a:visited {
+  color: #d04ff1;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .hero-carousel {

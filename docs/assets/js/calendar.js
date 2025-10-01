@@ -1,8 +1,3 @@
-// Your Google Calendar API key and Calendar ID
-//Update to use config.js values
-const API_KEY = 'YOUR_API_KEY';
-const CALENDAR_ID = 'YOUR_CALENDAR_ID';
-
 document.addEventListener('DOMContentLoaded', function() {
   const calendarEl = document.getElementById('calendar');
   const modal = document.getElementById('eventModal');
@@ -23,70 +18,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Initialize Google Calendar API
-  gapi.load('client', initGoogleCalendar);
-
-  function initGoogleCalendar() {
-    gapi.client.init({
-      apiKey: API_KEY,
-      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
-    }).then(() => {
-      initializeCalendar();
-    }).catch(error => {
-      console.error('Error initializing Google Calendar API:', error);
-    });
-  }
-
-  function initializeCalendar() {
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      themeSystem: 'standard',
-      initialView: window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth',
-      height: 'auto',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,listMonth'
-      },
-      events: function(fetchInfo, successCallback, failureCallback) {
-        const timeMin = fetchInfo.start.toISOString();
-        const timeMax = fetchInfo.end.toISOString();
-
-        gapi.client.calendar.events.list({
-          calendarId: CALENDAR_ID,
-          timeMin: timeMin,
-          timeMax: timeMax,
-          showDeleted: false,
-          singleEvents: true,
-          orderBy: 'startTime'
-        }).then(response => {
-          const events = response.result.items.map(event => ({
-            id: event.id,
-            title: event.summary,
-            start: event.start.dateTime || event.start.date,
-            end: event.end.dateTime || event.end.date,
-            description: event.description || '',
-            location: event.location || '',
-            url: event.htmlLink
-          }));
-          successCallback(events);
-        }).catch(error => {
-          console.error('Error fetching events:', error);
-          failureCallback(error);
-        });
-      },
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    themeSystem: 'standard',
+    initialView: window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth',
+    height: 'auto',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,listMonth'
+    },
+    events: 'assets/data/events.json', // Load events directly from the JSON file
     eventClick: function(info) {
       info.jsEvent.preventDefault();
       
       // Format date and time
       const startDate = info.event.start;
       const endDate = info.event.end;
+      if (!startDate) return;
+
       const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const timeOptions = { hour: 'numeric', minute: '2-digit' };
       
       // Update modal content
       document.getElementById('modalTitle').textContent = info.event.title;
       document.getElementById('modalDate').textContent = startDate.toLocaleDateString(undefined, dateOptions);
-      document.getElementById('modalTime').textContent = `${startDate.toLocaleTimeString(undefined, timeOptions)} - ${endDate.toLocaleTimeString(undefined, timeOptions)}`;
+      document.getElementById('modalTime').textContent = endDate ? `${startDate.toLocaleTimeString(undefined, timeOptions)} - ${endDate.toLocaleTimeString(undefined, timeOptions)}` : startDate.toLocaleTimeString(undefined, timeOptions);
       document.getElementById('modalLocation').textContent = info.event.extendedProps.location || 'TBA';
       document.getElementById('modalDescription').textContent = info.event.extendedProps.description || '';
       
@@ -94,7 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const venueLink = document.getElementById('modalVenueLink');
       const mapLink = document.getElementById('modalMapLink');
       
-      venueLink.style.display = 'none';  // Google Calendar doesn't provide venue URLs
+      if (info.event.extendedProps.venueUrl) {
+        venueLink.href = info.event.extendedProps.venueUrl;
+        venueLink.style.display = 'inline-block';
+      } else {
+        venueLink.style.display = 'none';
+      }
       
       if (info.event.extendedProps.location) {
         mapLink.style.display = 'inline-block';
@@ -106,21 +67,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // Show modal
       modal.style.display = 'block';
     },
-    eventDidMount: function(info) {
-      // Add location information to event elements
-      if (info.event.extendedProps.location) {
-        info.el.title = info.event.extendedProps.location;
-      }
-    }
   });
 
   calendar.render();
 
   // Handle responsive view changes
   window.addEventListener('resize', function() {
-    calendar.setOption('initialView', 
-      window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth'
-    );
+    if (window.innerWidth < 768) {
+      calendar.changeView('listMonth');
+    } else {
+      calendar.changeView('dayGridMonth');
+    }
   });
-  }
 });
