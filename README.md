@@ -16,13 +16,13 @@ A modern, responsive website for musician Josh Starkey, featuring event manageme
 ## Project Structure
 
 ````
-src/
+docs/
 ├── assets/
 │   ├── css/
 │   │   ├── styles.css      # Main stylesheet
 │   │   └── calendar.css    # Calendar-specific styles
 │   ├── js/
-│   │   ├── app.js         # Core application logic
+│   │   ├── app.js         # Core application logic (loads nav/footer)
 │   │   ├── calendar.js    # Calendar functionality
 │   │   ├── main.js       # Additional JavaScript
 │   │   └── manage-events.js # Event management script
@@ -33,7 +33,7 @@ src/
 │       └── *.jpg        # Other site images
 ├── index.html           # Home page
 ├── about.html          # About the artist
-├── music.html         # Music and Spotify integration
+├── music.html         # Music and Spotify embeds
 ├── events.html       # Events calendar
 ├── contact.html     # Contact form
 ├── nav.html        # Navigation template
@@ -65,7 +65,7 @@ src/
    ```
 
 4. **View the Website:**
-   Open your browser and go to `http://localhost:8000/src/`
+   Open your browser and go to `http://localhost:8000/docs/`
 
 ## Component System
 
@@ -108,8 +108,8 @@ The website includes an event calendar system that can be managed through a simp
    # Make the script executable (first time only)
    chmod +x src/assets/js/manage-events.js
 
-   # Run the management script
-   node src/assets/js/manage-events.js
+   # Run the management script from the root directory
+   node docs/assets/js/manage-events.js
    ```
 
 2. **Available Commands:**
@@ -131,7 +131,7 @@ The website includes an event calendar system that can be managed through a simp
 ### Event Storage
 
 - Events are stored in `src/assets/data/events.json`
-- The calendar automatically loads events from this file
+- The calendar on `events.html` automatically loads events from this file
 - The file is updated automatically when using the management script
 
 ### Technical Details
